@@ -40,7 +40,7 @@ function Header({ darkMode, toggleDarkMode }) {
                         duration={500}
                         className="text-gray-900 dark:text-white hover:text-blue-600 cursor-pointer"
                     >
-                        Contact Us
+                        Contact
                     </Link>
                 </nav>
 
