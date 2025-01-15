@@ -7,6 +7,29 @@ function Hero() {
     const [isDeleting, setIsDeleting] = useState(false);
     const [typingSpeed, setTypingSpeed] = useState(150);
 
+    const [paddingTop, setPaddingTop] = useState('80px'); // Default padding-top
+
+    // Adjust padding-top based on screen width
+    useEffect(() => {
+        const updatePaddingTop = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 500) {
+                setPaddingTop('100px');
+            } else if (screenWidth < 768) {
+                setPaddingTop('60px');
+            } else {
+                setPaddingTop('80px'); // Default for larger screens
+            }
+        };
+
+        // Initial check and event listener for resize
+        updatePaddingTop();
+        window.addEventListener('resize', updatePaddingTop);
+
+        // Cleanup listener
+        return () => window.removeEventListener('resize', updatePaddingTop);
+    }, []);
+
     useEffect(() => {
         const handleTyping = () => {
             const currentRole = roles[currentRoleIndex];
@@ -33,7 +56,10 @@ function Hero() {
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center relative">
                 {/* Left side: Text */}
                 <div className="w-full md:w-1/2 text-center md:text-left z-10">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight sm:pt-[80px]">
+                    <h1
+                        className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
+                        style={{ paddingTop }}
+                    >
                         Nipun Bakshi
                     </h1>
                     <h2 className="text-2xl md:text-3xl mb-6">
