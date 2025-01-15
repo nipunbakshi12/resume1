@@ -33,7 +33,9 @@ function Hero() {
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center relative">
                 {/* Left side: Text */}
                 <div className="w-full md:w-1/2 text-center md:text-left z-10">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4">Nipun Bakshi</h1>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight sm:pt-[50px]">
+                        Nipun Bakshi
+                    </h1>
                     <h2 className="text-2xl md:text-3xl mb-6">
                         I am a {currentText}
                         <span className="blink-cursor">|</span>
