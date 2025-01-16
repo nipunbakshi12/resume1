@@ -4,8 +4,9 @@ function Contact() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        message: '',
     });
+
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -13,6 +14,7 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Show loader
         try {
             const response = await fetch('https://resume1-backend.onrender.com/api/contact', {
                 method: 'POST',
@@ -22,14 +24,16 @@ function Contact() {
                 body: JSON.stringify(formData),
             });
             if (response.ok) {
-                alert('Message sent successfully!');
-                setFormData({ name: '', email: '', message: '' });
+                alert("I'll get back to you shortly!");
+                setFormData({ name: '', email: '' });
             } else {
                 alert('Failed to send message. Please try again.');
             }
         } catch (error) {
             console.error('Error:', error);
             alert('An error occurred. Please try again.');
+        } finally {
+            setLoading(false); // Hide loader
         }
     };
 
@@ -66,25 +70,36 @@ function Contact() {
                             className="w-full px-3 py-2 border rounded-md dark:bg-gray-700"
                         />
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="message" className="block mb-2">
-                            Message
-                        </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            required
-                            rows="4"
-                            className="w-full px-3 py-2 border rounded-md dark:bg-gray-700"
-                        ></textarea>
-                    </div>
                     <button
                         type="submit"
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        disabled={loading} // Disable button while loading
+                        className={`flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${loading ? 'cursor-not-allowed' : ''
+                            }`}
                     >
-                        Send Message
+                        {loading ? (
+                            <svg
+                                className="animate-spin h-5 w-5 mr-2 text-white"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    className="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                ></circle>
+                                <path
+                                    className="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                ></path>
+                            </svg>
+                        ) : (
+                            'Send Message'
+                        )}
                     </button>
                 </form>
             </div>
@@ -93,4 +108,3 @@ function Contact() {
 }
 
 export default Contact;
-

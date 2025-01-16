@@ -30,8 +30,7 @@ app.post('/api/contact', (req, res) => {
         to: email,                          // Recipient email (from the form data)
         subject: 'Thanks for connecting with me', // Updated subject
         text: `
-            How may I help you?
-            For further queries, contact me on WhatsApp.
+            Thank you for contacting me. How may I help you?
         `,
     };
 
