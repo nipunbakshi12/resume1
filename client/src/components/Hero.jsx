@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 function Hero() {
     const roles = ['Coder', 'Full Stack Developer', 'Web Developer'];
     const [currentText, setCurrentText] = useState('');
@@ -8,7 +7,6 @@ function Hero() {
     const [typingSpeed, setTypingSpeed] = useState(150);
 
     const [paddingTop, setPaddingTop] = useState('80px'); // Default padding-top
-    const [isDelayOver, setIsDelayOver] = useState(false); // To track the delay for image and voice
 
     // Adjust padding-top based on screen width
     useEffect(() => {
@@ -31,7 +29,6 @@ function Hero() {
         return () => window.removeEventListener('resize', updatePaddingTop);
     }, []);
 
-    // Typing animation for roles
     useEffect(() => {
         const handleTyping = () => {
             const currentRole = roles[currentRoleIndex];
@@ -52,24 +49,6 @@ function Hero() {
         const timer = setTimeout(handleTyping, typingSpeed);
         return () => clearTimeout(timer);
     }, [currentText, isDeleting, currentRoleIndex, roles, typingSpeed]);
-
-    // Delay for image load and greeting
-    useEffect(() => {
-        const delayTimer = setTimeout(() => {
-            setIsDelayOver(true);
-            const greeting = new SpeechSynthesisUtterance('Hello, Nipun this side!');
-            greeting.lang = 'en-US';
-            greeting.volume = 1; // Volume (0 to 1)
-            greeting.rate = 1; // Speed (default is 1)
-            greeting.pitch = 1; // Pitch (default is 1)
-            window.speechSynthesis.speak(greeting);
-        }, 3000); // 3-second delay
-
-        return () => {
-            clearTimeout(delayTimer);
-            window.speechSynthesis.cancel(); // Stop ongoing speech on component unmount
-        };
-    }, []);
 
     return (
         <section id="hero" className="relative pt-8 pb-12 md:py-24 overflow-hidden">
@@ -102,8 +81,7 @@ function Hero() {
                 <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center relative">
                     {/* Animated Background */}
                     <div
-                        className={`absolute w-[46vw] h-[36vw] right-0 top-[50%] -translate-y-1/2 blur-xl ${!isDelayOver && 'hidden'
-                            }`}
+                        className="absolute w-[46vw] h-[36vw] right-0 top-[50%] -translate-y-1/2 blur-xl"
                         id="hero-shape"
                     >
                         <div className="absolute bg-gradient-to-r from-green-500 to-orange-300 rounded-full w-full h-full animate-pulse opacity-50"></div>
@@ -114,8 +92,7 @@ function Hero() {
                     <img
                         src="../images/profile.jpg" // Replace with your actual image path
                         alt="Profile"
-                        className={`w-full h-96 object-cover border-4 border-blue-600 shadow-lg z-10 ${!isDelayOver && 'hidden'
-                            }`}
+                        className="w-full h-96 object-cover border-4 border-blue-600 shadow-lg z-10"
                     />
                 </div>
             </div>
