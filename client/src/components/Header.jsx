@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import { FaSun, FaMoon } from 'react-icons/fa';
+import logo from '../assets/logo.png'
+import logoDark from '../assets/logo_dark.png'
 
 function Header({ darkMode, toggleDarkMode }) {
     return (
@@ -11,10 +13,16 @@ function Header({ darkMode, toggleDarkMode }) {
                     to="hero"
                     smooth={true}
                     duration={500}
-                    className="text-2xl font-bold cursor-pointer text-gray-900 dark:text-white"
+                    className="flex items-center space-x-2 text-2xl font-bold cursor-pointer text-gray-900 dark:text-white"
                 >
-                    Nipun Bakshi
+                    <img
+                        src={darkMode ? logoDark : logo}
+                        alt="Logo"
+                        className="h-10 w-auto"
+                    />
+                    <span>Nipun Bakshi</span>
                 </Link>
+
 
                 {/* Navigation Links */}
                 <nav className="flex space-x-6">
