@@ -38,12 +38,14 @@ function Contact() {
     };
 
     return (
-        <section id="contact" className="py-12 bg-gray-100 dark:bg-gray-800">
+        <section id="contact" className="py-16 bg-gray-100 dark:bg-gray-800">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-8">Contact Me</h2>
-                <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
+                <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-8">
+                    Contact Me
+                </h2>
+                <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 space-y-6">
                     <div className="mb-4">
-                        <label htmlFor="name" className="block mb-2">
+                        <label htmlFor="name" className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
                             Name
                         </label>
                         <input
@@ -53,11 +55,11 @@ function Contact() {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-3 py-2 border rounded-md dark:bg-gray-700"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md dark:bg-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="email" className="block mb-2">
+                        <label htmlFor="email" className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
                             Email
                         </label>
                         <input
@@ -67,14 +69,13 @@ function Contact() {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-3 py-2 border rounded-md dark:bg-gray-700"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md dark:bg-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                         />
                     </div>
                     <button
                         type="submit"
                         disabled={loading} // Disable button while loading
-                        className={`flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${loading ? 'cursor-not-allowed' : ''
-                            }`}
+                        className={`w-full flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ${loading ? 'cursor-not-allowed opacity-50' : ''}`}
                     >
                         {loading ? (
                             <svg
