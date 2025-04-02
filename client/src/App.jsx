@@ -13,7 +13,7 @@ const Skeleton = () => (
 );
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [loading, setLoading] = useState(true); // Loading state
 
   const toggleDarkMode = () => {

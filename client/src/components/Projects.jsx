@@ -3,16 +3,28 @@ import { motion } from "framer-motion";
 
 const projects = [
     {
-        title: "Yummy Section",
-        description: "An online food app website that provides a variety of food options with ordering and payment integration.",
-        link: "https://github.com/nipunbakshi12/Yummy-Section",
-        image: "../images/yummy.png",
-    },
-    {
         title: "Ship Shop Store",
         description: "A grocery website that allows users to purchase various grocery items online with a seamless shopping experience.",
         link: "https://shipshopstore.in/",
         image: "../images/shipShop.png",
+    },
+    {
+        title: "Weather Finder",
+        description: "A weather finder tool that provides real-time weather updates based on user location or city.",
+        link: "https://nipunbakshi12.github.io/Weather-Finder/",
+        image: "../images/weather.png",
+    },
+    {
+        title: "Velour - Bags and Accessories",
+        description: "Velour is an online store offering a curated collection of bags and accessories that combine elegance, modern design, and personal style, making luxury accessible for all.",
+        link: "https://shopvelour.in/",
+        image: "../images/velour.png",
+    },
+    {
+        title: "Yummy Section",
+        description: "An online food app website that provides a variety of food options with ordering and payment integration.",
+        link: "https://github.com/nipunbakshi12/Yummy-Section",
+        image: "../images/yummy.png",
     },
     {
         title: "Apple Website",
@@ -27,28 +39,22 @@ const projects = [
         image: "../images/realme.png",
     },
     {
-        title: "Weather Finder",
-        description: "A weather finder tool that provides real-time weather updates based on user location or city.",
-        link: "https://nipunbakshi12.github.io/Weather-Finder/",
-        image: "../images/weather.png",
-    },
-    {
         title: "Translator",
         description: "A language translator that supports translation in multiple languages, allowing seamless communication across regions.",
         link: "https://nipunbakshi12.github.io/Translator/",
         image: "../images/translate.png",
     },
     {
-        title: "Game Zone",
-        description: "A collection of games, including Tic Tac Toe and Rock Paper Scissors, offering fun and interactive gameplay.",
-        link: "https://github.com/nipunbakshi12/Game-Zone",
-        image: "../images/games.png",
-    },
-    {
         title: "Portfolio",
         description: "A personal portfolio website showcasing the skills, projects, and experiences of a model, highlighting their work.",
         link: "https://noor-portfolio-gamma.vercel.app/",
         image: "../images/portfolio.png",
+    },
+    {
+        title: "Game Zone",
+        description: "A collection of games, including Tic Tac Toe and Rock Paper Scissors, offering fun and interactive gameplay.",
+        link: "https://github.com/nipunbakshi12/Game-Zone",
+        image: "../images/games.png",
     },
 ];
 

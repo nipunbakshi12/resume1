@@ -9,7 +9,6 @@ function Hero() {
     const [typingSpeed, setTypingSpeed] = useState(150);
     const [paddingTop, setPaddingTop] = useState('80px');
     const [imageSrc, setImageSrc] = useState('../images/profile.jpg');
-    const [imageLoaded, setImageLoaded] = useState(false); // State to track image load
 
     useEffect(() => {
         const updatePaddingTop = () => {
@@ -49,11 +48,6 @@ function Hero() {
         return () => clearTimeout(timer);
     }, [currentText, isDeleting, currentRoleIndex, roles, typingSpeed]);
 
-    // Handle image load event
-    const handleImageLoad = () => {
-        setImageLoaded(true);
-    };
-
     return (
         <section id="hero" className="relative pt-8 pb-12 md:py-24 overflow-hidden">
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center relative">
@@ -79,35 +73,21 @@ function Hero() {
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 3, repeat: Infinity }}
                     >
-                        <div className="absolute bg-gradient-to-r from-blue-500 to-purple-400 rounded-full w-[55%] h-[55%] opacity-60"></div>
-                        <div className="absolute bg-gradient-to-r from-purple-500 to-blue-300 rounded-full w-[40%] h-[30%] opacity-50"></div>
+                        <div className="absolute bg-gradient-to-r from-blue-500 to-purple-400 rounded-full w-[85%] h-[55%] opacity-60"></div>
+                        <div className="absolute bg-gradient-to-r from-purple-500 to-blue-300 rounded-full w-[0%] h-[30%] opacity-50"></div>
                     </motion.div>
 
-                    <div className="relative">
-                        {/* Loader when image is not loaded */}
-                        {!imageLoaded && (
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <img
-                                    src="./logo_dark.png" // Replace with your rotating loader image path
-                                    alt="Loading"
-                                    className="animate-spin w-16 h-16" // Rotating animation
-                                />
-                            </div>
-                        )}
 
-                        {/* Image */}
-                        <motion.img
-                            src={imageSrc}
-                            alt="Profile"
-                            className="w-72 h-72 md:w-96 md:h-96 object-cover border-4 border-blue-600 shadow-2xl z-10 rounded-full"
-                            onMouseEnter={() => setImageSrc('../images/ghibli_image.png')}
-                            onMouseLeave={() => setImageSrc('../images/profile.jpg')}
-                            onLoad={handleImageLoad} // Trigger onLoad event when image is loaded
-                            initial={{ opacity: 0.8 }}
-                            whileHover={{ scale: 1.1, opacity: 1 }}
-                            transition={{ duration: 0.5 }}
-                        />
-                    </div>
+                    <motion.img
+                        src={imageSrc}
+                        alt="Profile"
+                        className="w-72 h-72 md:w-96 md:h-96 object-cover border-4 border-blue-600 shadow-2xl z-10 rounded-full"
+                        onMouseEnter={() => setImageSrc('../images/ghibli_image.png')}
+                        onMouseLeave={() => setImageSrc('../images/profile.jpg')}
+                        initial={{ opacity: 0.8 }}
+                        whileHover={{ scale: 1.1, opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                    />
                 </div>
             </div>
         </section>
