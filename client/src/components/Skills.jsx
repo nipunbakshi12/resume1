@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SkillShowcase from "./SkillShowcase";
 
 const skills = [
     { name: "HTML", icon: "../images/html.png" },
@@ -28,13 +29,13 @@ const itemVariants = {
 
 function Skills() {
     return (
-        <section id="skills" className="py-16 bg-gray-100 dark:bg-gray-800">
+        <section id="skills" className="py-12 bg-gray-100 dark:bg-gray-800">
             <div className="container mx-auto px-6 lg:px-12">
-                <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white">
                     Me and my Tech Stack
                 </h2>
 
-                <div className="flex flex-col md:flex-row gap-12 items-center">
+                <div className="flex flex-col mt-10 md:flex-row md:gap-16 lg:gap-20 xl:gap-28 items-center">
                     {/* Left side: Description */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -42,21 +43,23 @@ function Skills() {
                         transition={{ duration: 0.8 }}
                         className="w-full md:w-1/2 text-lg text-gray-700 dark:text-gray-300"
                     >
-                        <p className="leading-relaxed">
-                            Hi everyone! My name is <span className="font-semibold text-blue-600 dark:text-blue-400">Nipun Bakshi</span>, and I am a <span className="font-semibold">Full Stack Web Developer</span> with a passion for creating dynamic and responsive web applications. I have been honing my skills for the past few years, and I’m currently in my final year of a <span className="font-semibold">Bachelor of Technology in Computer Science and Engineering</span>.
-                        </p>
-                        <br />
-                        <p className="leading-relaxed">
-                            My expertise lies in using technologies like <span className="font-semibold text-blue-600 dark:text-blue-400">React, Node.js, and Express</span> to build robust applications. I'm always eager to learn and explore new frameworks and libraries.
-                        </p>
-                        <br />
-                        <p className="leading-relaxed">
-                            With a commitment to continuous improvement, I strive to stay updated with the latest industry trends and best practices. I look forward to collaborating on exciting projects and contributing my skills to create impactful solutions!
+                        <p className="leading-relaxed space-y-4">
+                            Hi everyone! My name is <span className="font-semibold text-[#c24be2]">Nipun Bakshi</span>, and I am a passionate <span className="font-semibold">Full Stack Web Developer</span> with a strong interest in building dynamic, user-friendly, and responsive web applications. I’m currently in my final year of a <span className="font-semibold">Bachelor of Technology in Computer Science and Engineering</span>, and have spent the past few years sharpening my technical skills and working on diverse development projects.
+                            My technical toolkit includes <span className="font-semibold text-[#c24be2]">HTML, CSS, JavaScript, jQuery, React.js, Node.js, Express.js, MongoDB, Python, and SQL</span>. I'm comfortable working across the full stack—from designing intuitive user interfaces to developing robust server-side logic. I'm always eager to explore new frameworks, tools, and best practices to enhance my development process.
+                            <br /><br />
+                            In addition to my development experience, I also have a solid understanding of <span className="font-semibold">Software Testing and Quality Assurance</span> principles. This knowledge helps me write cleaner, more reliable code and ensures that the applications I build are both functional and user-focused.
+                            <br /><br />
+                            I'm a curious problem-solver, a fast learner, and a strong believer in continuous improvement. I love collaborating with teams to create impactful digital solutions that solve real-world problems.
                         </p>
                     </motion.div>
 
                     {/* Right side: Skills logos */}
-                    <motion.div
+
+                    <SkillShowcase />
+
+
+
+                    {/* <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -79,7 +82,7 @@ function Skills() {
                                 </span>
                             </motion.div>
                         ))}
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </div>
         </section>
