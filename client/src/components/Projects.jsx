@@ -125,22 +125,36 @@ function Projects() {
                     {/* Beginner Projects Card */}
                     <motion.div
                         variants={cardVariants}
-                        className="flex flex-col items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer p-6"
+                        className="flex flex-col items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer p-6 relative"
                         onClick={() => setShowModal(true)}
                     >
-                        <div className="text-center">
-                            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-                                Beginner Projects
-                            </h3>
-                            <p className="text-gray-600 dark:text-gray-400 mb-4">
-                                Click to view my beginner level projects!
-                            </p>
+                        {/* Semi-circular text */}
+                        <div className="absolute top-0 w-80 h-60 flex items-center justify-center font-bold">
+                            <svg viewBox="0 0 200 100" className="w-full h-full">
+                                <defs>
+                                    <path
+                                        id="semiCirclePath"
+                                        d="M10,90 Q100,0 190,90"
+                                        fill="transparent"
+                                    />
+                                </defs>
+                                <text fill="currentColor" className="text-gray-900 dark:text-white text-sm">
+                                    <textPath href="#semiCirclePath" startOffset="50%" textAnchor="middle">
+                                        Beginner Projects
+                                    </textPath>
+                                </text>
+                            </svg>
                         </div>
+
                         {/* Baby Crawling Lottie Animation */}
-                        <div className="w-32">
+                        <div className="w-32 pt-6"> {/* Added pt-6 to push baby a little down */}
                             <Lottie animationData={babyCrawling} loop={true} />
                         </div>
+                        <div>
+                            Click to view my Beginner Projects
+                        </div>
                     </motion.div>
+
                 </motion.div>
             </div>
 
