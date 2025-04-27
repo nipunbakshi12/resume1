@@ -6,7 +6,12 @@ export default {
   ],
   darkMode: 'class', // Enable dark mode using a class
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 8s linear infinite',
+      },
+    }
+    ,
   },
   plugins: [],
 }
