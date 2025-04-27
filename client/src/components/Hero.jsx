@@ -61,7 +61,7 @@ function Hero() {
                         <span className="blink-cursor">|</span>
                     </h2>
                     <p className="text-lg mb-8 max-w-2xl">
-                        Experienced Full Stack Developer with expertise in front-end and back-end technologies. Proficient in JavaScript, React.js, Node.js, Express.js, MongoDB. Skilled in creating responsive, user-friendly web applications. Strong problem-solving abilities and a collaborative team player. Committed to continuous learning and staying updated with industry trends.
+                        Full Stack MERN Developer | Skilled in HTML, CSS, JavaScript, jQuery, React.js, Node.js, Express.js, MongoDB, Python & SQL. Expert in Building Scalable, Responsive Web Applications with Clean Code and Seamless User Experiences. Strong problem-solving abilities and a collaborative team player. Committed to continuous learning and staying updated with industry trends.
                     </p>
                     <a href="/pdf/Nipun_Bakshi.pdf" download className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Download Resume
